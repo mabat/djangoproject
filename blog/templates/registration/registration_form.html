@@ -1,0 +1,15 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+<div class="container-fluid center">
+
+<div class="row">
+<div class="form_style">
+<form class="post-form form_style" method="post" action="{% url 'register_new' %}">
+  {%csrf_token%}
+  {{ form_register_new.as_p }}
+  <button type="Submit" name = "btn_register_new" class="save btn btn-default">Sign up</button>
+</form>
+</div>
+</div></div>
+{% endblock %}

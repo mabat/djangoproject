@@ -1,0 +1,44 @@
+{% extends 'blog/index.html' %} {% block content %}
+
+<div class="container-fluid center">
+
+    <div class="row">
+
+        <div class="form_style">
+
+          {% if form.errors %}
+          <p>Your username and password didn't match!</p>
+          {% endif %}
+          <form method="post" action="{% url 'login' %}">
+
+            {%csrf_token%}
+            <table class ="form style">
+              <tr>
+                <td>{{form.username.label_tag}}</td>
+                </tr>
+                <tr>
+                <td>{{form.username}}</td>
+              </tr>
+              <tr>
+                <td>{{form.password.label_tag}}</td>
+                </tr>
+                <tr>
+                <td>{{form.password}}</td>
+              </tr>
+            </table>
+
+            <div class="row">
+              <div>
+                <button class="btn pull-right" type="submit">Login</button>
+                <input type="hidden" name="next" value="{{ next }}" />
+                <button class="btn pull-left" type="reset"><a href="{% url 'register_new' %}"> Sign up</a></button>
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+</div>
+</div>
+
+{% endblock %}

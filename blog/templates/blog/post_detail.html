@@ -1,0 +1,42 @@
+{% extends 'blog/index.html' %} {% block head_title %}{{post.title}} | {{block.super}} {% endblock head_title %}
+<!--da se klikon na post pojavi ime posta u tabu pa ostatak koji mo naveli u index.html-->
+
+{% block content %}
+<div class="post">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>{{ post.title }}</h1>
+        </div>
+        <div class="col-md-4 margin-top">
+          {% if user.is_authenticated and post.author.pk == request.user.pk or request.user.is_superuser%}
+          <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a> {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <p>{{ post.text|linebreaks }}</p>
+    </div>
+    <div class="panel-footer">
+      {% if post.published_date %}
+      <div class="date">
+        <p>author: {{ post.author }}; published: {{ post.published_date|timesince }} ago</p>
+      </div>
+      {% endif %}
+      <a href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+      <hr> {% for comment in post.comments.all %}
+      <div class="comment">
+        <div class="date">{{ comment.created_date|timesince }} ago {% if user.is_authenticated and comment.author == request.user or request.user.is_superuser%}
+          <a href="{% url 'delete_own_comment' pk=comment.pk %}">Delete</a>{% endif %}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+      </div>
+      {% empty %}
+      <p>No comments here yet :(</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

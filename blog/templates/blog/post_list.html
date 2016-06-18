@@ -1,0 +1,29 @@
+{% extends 'blog/index.html' %} {% block content %} {% for post in posts %}
+<div class="post">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-8">
+          <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+        </div>
+        <div class="col-md-4 margin-top">
+          {% if user.is_authenticated and post.author.pk == request.user.pk or request.user.is_superuser %}
+          <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a> {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <p>{{ post.text|linebreaks|truncatechars:120 }}</p>
+      <p><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary" role = "button">Više</a></p>
+    </div>
+    <div class="panel-footer">
+      <div class="date">
+        <p>author: {{ post.author }}; published: {{ post.published_date|timesince }} ago</p>
+      </div>
+      <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+    </div>
+
+  </div>
+</div>
+{% endfor %} {% endblock %}

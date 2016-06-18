@@ -1,0 +1,127 @@
+h1 a {
+    color: #84c97c;
+    font-family: 'Lobster';
+}
+
+.page-header {
+    background-color: #aaf2d6;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    width: 100%;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #221c1c;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #221c1c;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.login{
+  color: #221c1c;
+  font-size: 12pt;
+}
+
+.hello{
+  color: #221c1c;
+  float: right;
+  font-size: 12pt;
+  margin-right: 20px;
+}
+.post {
+    margin-bottom: 70px;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.welcome{
+
+background-color: #9fb89d;
+
+}
+.center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex; /*vert*/
+  align-items: center;
+  justify-content: center; /*horiz*/
+}
+
+.cover{
+  background: url("https://wallpaperscraft.com/image/planet_light_spots_space_86643_1920x1080.jpg");
+  font-family: 'Lobster';
+  position: fixed;
+  background-repeat: repeat-x;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  color: #c6daf7;
+}
+.cover a{
+  color: #c6daf7;
+}
+
+.cover a:hover{
+  color: #b0cdf6;
+
+  /*text-decoration: none;*/
+}
+
+.form_style{
+
+  font-family: sans-serif;
+  color: #404052;
+  font-size: 15pt;
+  width: 100%;
+}
+.form-control {
+  border-radius: 0;
+}
+
+.messages{
+  color: #2ed1af;
+}
+
+.panel-heading {
+    background-image: none !important;
+    background-color: #a6e8ce !important;
+
+}
+.margin-top{
+  margin-top: 20px;
+}

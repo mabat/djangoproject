@@ -1,0 +1,13 @@
+{% extends 'registration/login.html' %} #preusmjeravanje na login formu {% block content %}
+<div class="container-fluid center">
+
+  <div class="row">
+    <div class="form_style">
+
+      <p>Registracija uspješna!</p>
+      <p>Prijavite se sa novim korisničkim podacima:
+        <a href="{% url 'login' %}" class="login"><span class="glyphicon glyphicon-lock">Log_in</span></a> </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
