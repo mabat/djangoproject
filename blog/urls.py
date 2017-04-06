@@ -10,5 +10,6 @@ url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
 url(r'^post/(?P<pk>\d+)/remove/$', views.post_remove, name='post_remove'),
 url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name="add_comment_to_post"),
 url(r'^comment/(?P<pk>\d+)/remove/$', views.delete_own_comment, name='delete_own_comment'),
-
+url(r'^profile/$', views.profile, name='profile'),
+url(r'^profile/$', views.profile, name='status_new'),
 ]

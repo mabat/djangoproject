@@ -1,4 +1,19 @@
-{% extends 'blog/index.html' %} {% block content %} {% for post in posts %}
+{% extends 'blog/index.html' %} {% block content %}{% load staticfiles %}
+<div class="content container">
+  <div class="row">
+<div class="col-md-1">
+
+</div>
+<div class="col-md-9">
+
+     <form class="search-box" action=" " method="GET">
+
+       <input type="text" name="q" value='{{ reqest.GET.q }}' placeholder="Search text">
+       <input type="Submit" value="Search">
+
+     </form>
+
+   {% for post in posts %}
 <div class="post">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -14,16 +29,31 @@
       </div>
     </div>
     <div class="panel-body">
-      <p>{{ post.text|linebreaks|truncatechars:120 }}</p>
+      <p>{{ post.get_markdown|truncatechars:250|linebreaks}}</p> <!--post.get_markdown je pretvoreni tekst da bude ispisan u formatiranom obliku-->
       <p><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary" role = "button">Više</a></p>
     </div>
     <div class="panel-footer">
       <div class="date">
         <p>author: {{ post.author }}; published: {{ post.published_date|timesince }} ago</p>
       </div>
-      <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
-    </div>
 
+      <div class="row">
+      <div class="col-md-4">
+        <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+      </div>
+      <div class="col-md-8 text-align-right">
+        <a href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href={% url 'post_detail' pk=post.pk %}&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer" target="_blank"><img src="{% static "img/facebook.png" %}" alt="facebook" /></a> <!--označava točno taj link do posta za share-->
+        <a href="https://twitter.com/home?status={% url 'post_detail' pk=post.pk %}" target="_blank"><img src="{% static "img/twiter.png" %}" alt="twitter" /></a>
+        <a href='https://plus.google.com/share?url={% url 'post_detail' pk=post.pk %}' target="_blank"><img src="{% static "img/g+.png" %}" alt="google+" /></a>
+      </div>
+    </div>
+</div>
   </div>
 </div>
-{% endfor %} {% endblock %}
+{% endfor %}
+</div>
+<div class="col-md-2">
+
+</div>
+</div></div>
+ {% endblock %}

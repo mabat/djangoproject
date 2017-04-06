@@ -1,0 +1,28 @@
+{% extends 'blog/index.html' %}{% load staticfiles %} {% block content %}
+<div class="content container">
+  <div class="row">
+
+  <div class="col-md-2 ">
+    <p>Username: </p>
+    <p style="color:blue">{{user.username}}</p>
+  </div>
+
+  {% include "blog/status_new.html" %}
+  <div class="col-md-8 status">
+
+<div>
+      {% for s in status %}
+<h4>{{ s.author }}: {{ s.status }}</h4>
+    {% endfor %}
+    </div>
+  </div>
+
+  <div class="col-md-2 text-align">
+    <h3>Postovi: </h3>
+    {% for post in posts %} {% if user.is_authenticated and post.author.pk == request.user.pk %}
+        <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
+    {% endif %} {% endfor %}
+  </div>
+</div>
+</div>
+{% endblock content%}

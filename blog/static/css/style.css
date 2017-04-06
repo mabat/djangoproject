@@ -1,6 +1,13 @@
 h1 a {
     color: #84c97c;
     font-family: 'Lobster';
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+a:hover, a:focus, a:visited, a:active{
+  text-decoration: none !important;
+  outline: none !important;
 }
 
 .page-header {
@@ -10,10 +17,11 @@ h1 a {
     width: 100%;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active,.page-header h1 a:hover, .page-header h1 a:focus {
     color: #221c1c;
     font-size: 36pt;
     text-decoration: none;
+    outline: none;
 }
 
 .content {
@@ -49,8 +57,13 @@ h1, h2, h3, h4 {
     text-align: right;
     padding-right: 10px;
 }
-.welcome-menu a:hover{
+.welcome-menu a{
   text-decoration: none;
+  outline: none;
+}
+.welcome-menu a:hover, .welcome-menu a:focus, .welcome-menu a:active, .welcome-menu a:visited{
+  text-decoration: none;
+  outline: none;
 }
 
 
@@ -69,8 +82,10 @@ h1, h2, h3, h4 {
     margin-bottom: 70px;
 }
 
-.post h1 a, .post h1 a:visited {
+.post h1 a, .post h1 a:visited, .post h1 a:active, .post h1 a:hover, .post h1 a:focus {
     color: #000000;
+    text-decoration: none;
+    outline: none;
 }
 
 .comment {
@@ -105,10 +120,14 @@ background-color: #9fb89d;
 }
 .cover a{
   color: #c6daf7;
+  outline: none;
+  text-decoration: none;
 }
 
-.cover a:hover{
+.cover a:hover, .cover a:active, .cover a:focus, .cover a:visited{
   color: #b0cdf6;
+  text-decoration: none;
+  outline: none;
 
   /*text-decoration: none;*/
 }
@@ -135,4 +154,19 @@ background-color: #9fb89d;
 }
 .margin-top{
   margin-top: 20px;
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+.search-box{
+  text-align: right;
+  padding-bottom: 20px;
+}
+
+.status{
+  text-align: center;
+  padding-bottom: 20px;
+  width: 80%;
 }

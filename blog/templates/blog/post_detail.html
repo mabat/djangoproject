@@ -2,6 +2,14 @@
 <!--da se klikon na post pojavi ime posta u tabu pa ostatak koji mo naveli u index.html-->
 
 {% block content %}
+<div class="content container">
+  <div class="row">
+<div class="col-md-1">
+
+</div>
+
+<div class="col-md-9">
+
 <div class="post">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -16,8 +24,8 @@
         </div>
       </div>
     </div>
-    <div class="panel-body">
-      <p>{{ post.text|linebreaks }}</p>
+    <div class="panel-body"}>
+      <p>{{ post.get_markdown|linebreaks }}</p>
     </div>
     <div class="panel-footer">
       {% if post.published_date %}
@@ -38,5 +46,9 @@
       {% endfor %}
     </div>
   </div>
+</div></div>
+<div class="col-md-2">
+
 </div>
+</div></div>
 {% endblock %}

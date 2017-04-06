@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>{% block head_title %}SpaceMind | Web{% endblock head_title %}</title>
+  <title>{% block head_title %}PINBlog | Web{% endblock head_title %}</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  {% block head_extra %}{% endblock head_extra %}
 </head>
 
 <body>

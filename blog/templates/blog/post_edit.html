@@ -1,10 +1,20 @@
-{% extends 'blog/index.html' %}
+{% extends 'blog/index.html' %} {% block head_extra %} {{form.media}}
+<!--form sa uređenim tekstom, ukloni za običnu formu-->
 
-{% block content %}
-<h1>Novi post</h1>
-<form class="post-form" method="post">{% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="save btn btn-default">Save</button>
+{% endblock head_extra %} {% block content %}
+<div class="content container">
+  <div class="row">
+    <div class="col-md-1">
 
-</form>
-{% endblock %}
+    </div>
+    <div class="col-md-9">
+      <h1>Novi post</h1>
+      <form class="post-form" method="post">{% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+
+      </form>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+    {% endblock %}
